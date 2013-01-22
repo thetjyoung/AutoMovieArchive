@@ -51,6 +51,10 @@ The goal of this project is to release an open source software capable of easily
 <img src="images/PertChart.png" />
 </p>
 
+<h3>Difficulties</h3>
+<h4>Movie Names</h4>
+<p>Most DVD's do not follow any sort of naming convention and often come with zero meta data.  This leads to an interesting problem, how can a program know what the movie name is if the DVD comes with zero information or meta data?  The answer was developed by Microsoft when they released their media center.  They built a hashing algorithm that creates a unique ID based on files sizes and creation dates.  This ID then can be mapped back to a database to retrieve the correct meta data.  We will need to either find or develop the function to create the DVDId as well as use that to download the meta data from a website like MovieDB.</p>
+
 <h3>Authors and Contributors</h3>
 
 <a href="https://github.com/brendonbeebe" class="user-mention">@brendonbeebe</a>
