@@ -2,4 +2,4 @@ AutoMovieArchive
 ================
 
 
-![Alt text](AutoMovieArchive/images/PertChart.png "Pert Chart")
+![Alt text](/images/PertChart.png "Pert Chart")
