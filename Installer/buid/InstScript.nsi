@@ -2,11 +2,15 @@
 !define PRODUCT_VERSION "0.1" 
 !define PRODUCT_PUBLISHER "TJ Young" 
 !define PRODUCT_WEB_SITE "http://brendonbeebe.github.com/AutoMovieArchive/"
+!define PRODUCT_ID "AMA"
+!define RUN_FILE "AutoMovieArchive"
 
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
 
 ; MUI Settings
+!define MUI_ICON "dvd.ico"
+!define MUI_UNICON "dvd.ico"
 !define MUI_ABORTWARNING
 !insertmacro MUI_PAGE_WELCOME
 !define MUI_LICENSEPAGE_RADIOBUTTONS
@@ -31,4 +35,37 @@ Section ""
 	${EndIf}
 	ExecWait '"$INSTDIR\pkgs\vlc.exe"'
 	endvlc:
+	;create desktop shortcut
+	CreateShortCut "$DESKTOP\${PRODUCT_ID}.lnk" "$INSTDIR\${RUN_FILE}.exe" ""
+ 
+	;create start-menu items
+	CreateDirectory "$SMPROGRAMS\${PRODUCT_ID}"
+	CreateShortCut "$SMPROGRAMS\${PRODUCT_ID}\Uninstall.lnk" "$INSTDIR\Uninstall.exe" "" "$INSTDIR\Uninstall.exe" 0
+	CreateShortCut "$SMPROGRAMS\${PRODUCT_ID}\${PRODUCT_ID}.lnk" "$INSTDIR\${RUN_FILE}.exe" "" "$INSTDIR\${RUN_FILE}.exe" 0
+ 
+	;write uninstall information to the registry
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_ID}" "DisplayName" "${PRODUCT_ID} (remove only)"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_ID}" "UninstallString" "$INSTDIR\Uninstall.exe"
+ 
+	WriteUninstaller "$INSTDIR\Uninstall.exe"
+SectionEnd
+
+
+;--------------------------------    
+;Uninstaller Section  
+Section "Uninstall"
+	;Delete Files 
+	RMDir /r "$INSTDIR\*.*"    
+ 
+	;Remove the installation directory
+	RMDir "$INSTDIR"
+ 
+	;Delete Start Menu Shortcuts
+	Delete "$DESKTOP\${PRODUCT_ID}.lnk"
+	Delete "$SMPROGRAMS\${PRODUCT_ID}\*.*"
+	RMDir  "$SMPROGRAMS\${PRODUCT_ID}"
+ 
+	;Delete Uninstaller And Unistall Registry Entries
+	DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\${PRODUCT_ID}"
+	DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_ID}"  
 SectionEnd
