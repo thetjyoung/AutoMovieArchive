@@ -1,0 +1,3 @@
+VLC Media Player and HandBrake Command Line Utility will be installed as part of this setup.
+Auto Movie Archive requires these additional programs to function properly.
+We do not condone or support software piracy and openly discourage it.
