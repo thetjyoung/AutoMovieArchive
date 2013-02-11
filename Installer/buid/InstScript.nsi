@@ -36,6 +36,8 @@ Section ""
 	ExecWait '"$INSTDIR\pkgs\vlc.exe"'
 	endvlc:
 	ExecWait '"msiexec" /i "$INSTDIR\pkgs\python.msi"  /passive'
+	ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path"
+	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path" "$0;c:\python27"
 	;create desktop shortcut
 	CreateShortCut "$DESKTOP\${PRODUCT_ID}.lnk" "$INSTDIR\pkgs\${RUN_FILE}.py" ""
  
