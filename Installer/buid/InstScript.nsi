@@ -3,7 +3,7 @@
 !define PRODUCT_PUBLISHER "TJ Young" 
 !define PRODUCT_WEB_SITE "http://brendonbeebe.github.com/AutoMovieArchive/"
 !define PRODUCT_ID "AMA"
-!define RUN_FILE "AutoMovieArchive"
+!define RUN_FILE "HelloWorld"
 
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
@@ -35,13 +35,16 @@ Section ""
 	${EndIf}
 	ExecWait '"$INSTDIR\pkgs\vlc.exe"'
 	endvlc:
+	ExecWait '"msiexec" /i "$INSTDIR\pkgs\python.msi"  /passive'
+	ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path"
+	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path" "$0;c:\python27"
 	;create desktop shortcut
-	CreateShortCut "$DESKTOP\${PRODUCT_ID}.lnk" "$INSTDIR\${RUN_FILE}.exe" ""
+	CreateShortCut "$DESKTOP\${PRODUCT_ID}.lnk" "$INSTDIR\pkgs\${RUN_FILE}.py" ""
  
 	;create start-menu items
 	CreateDirectory "$SMPROGRAMS\${PRODUCT_ID}"
 	CreateShortCut "$SMPROGRAMS\${PRODUCT_ID}\Uninstall.lnk" "$INSTDIR\Uninstall.exe" "" "$INSTDIR\Uninstall.exe" 0
-	CreateShortCut "$SMPROGRAMS\${PRODUCT_ID}\${PRODUCT_ID}.lnk" "$INSTDIR\${RUN_FILE}.exe" "" "$INSTDIR\${RUN_FILE}.exe" 0
+	CreateShortCut "$SMPROGRAMS\${PRODUCT_ID}\${PRODUCT_ID}.lnk" "$INSTDIR\pkgs\${RUN_FILE}.py" "" "$INSTDIR\pkgs\${RUN_FILE}.py" 0
  
 	;write uninstall information to the registry
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_ID}" "DisplayName" "${PRODUCT_ID} (remove only)"
