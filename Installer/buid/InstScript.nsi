@@ -35,9 +35,16 @@ Section ""
 	${EndIf}
 	ExecWait '"$INSTDIR\pkgs\vlc.exe"'
 	endvlc:
+	;install python
 	ExecWait '"msiexec" /i "$INSTDIR\pkgs\python.msi"  /passive'
 	ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path"
-	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path" "$0;c:\python27"
+	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path" "$0;c:\python33"
+	;install IronPython
+	ExecWait '"msiexec" /i "$INSTDIR\pkgs\IronPython.msi"  /passive'
+	ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path"
+	WriteRegStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "path" "$0;C:\Program Files\IronPython 2.7"
+	;install MakeMKV
+	ExecWait '"$INSTDIR\pkgs\MakeMKV.exe"'
 	;create desktop shortcut
 	CreateShortCut "$DESKTOP\${PRODUCT_ID}.lnk" "$INSTDIR\pkgs\${RUN_FILE}.py" ""
  
