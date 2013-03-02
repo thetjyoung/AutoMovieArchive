@@ -1,3 +1,6 @@
-VLC Media Player and HandBrake Command Line Utility will be installed as part of this setup.
-Auto Movie Archive requires these additional programs to function properly.
-We do not condone or support software piracy and openly discourage it.
+The following utilities and programs will be installed as part of this installation:
+-VLC Media Player 
+-HandBrake Command Line Utility
+-python 3.3, IronPython 2.7
+-Make MKV
+Auto Movie Archive requires these additional programs to function properly. We do not condone or support software piracy and openly discourage it.
