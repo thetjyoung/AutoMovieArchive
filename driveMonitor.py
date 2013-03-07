@@ -16,10 +16,8 @@ def CDREventArrived(sender, e):
         movieName = titleRetriever.getMovieName();
         Console.WriteLine("Found: "+movieName)
         
-        ##TODO: rip ths
-        #cdRipper = ripper(titleRetriever.driveLetter, movieName)
-        
-        ##ripper.rip()
+        mkvFile = ripper.rip(titleRetriever.driveLetter, movieName)
+		ripper.transcode(mkvFile, movieName)
     else:
         Console.WriteLine("CD has been ejected")
 
