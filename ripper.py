@@ -32,8 +32,7 @@ def rip(driveLetter, movieName):
 		if p.ExitCode == 0:
 			print("Successfully ripped %s" % movieName)
 
-			movieMkv = Directory.GetFiles(out)[0]
-			transcode(movieMkv, movieName)
+			return Directory.GetFiles(out)[0]
 		else:
 			print("Error: %d" % p.ExitCode)
 	else:
