@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+NotifyIconSample
+</name>
+</assembly>
+<members>
+<member name="P:NotifyIconSample.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:NotifyIconSample.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:NotifyIconSample.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:NotifyIconSample.MainForm.btnTray_Click(System.Object,System.EventArgs)">
+	<summary>
+ Hide the main form, as a program running as a tray icon doesn't typically 
+ have a visible form.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.osMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Grab the operating system information.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.currentDateMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Displays the current Date.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.timeZoneMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Using the TimeZone class display the name of the user's current timezone.  
+ The(Time Zone) class can also be used to determine if the user's location 
+ is currently using daylight savings time as well as the time that daylight 
+ savings time is active for a given time zone.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.frameworkMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Grab the current .NET Framework Version.  Outputs the Build, Major, 
+ Minor information. This information can also be accessed individually 
+ by properties.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.restartMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Displays the amount of time that the machine has been up since last being rebooted.
+ The time retrieved from TickCount is in Milliseconds.  This is converted to minutes.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:NotifyIconSample.MainForm.ntfSystemInfo_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+ When the user double-clicks the tray icon, display the main form again.
+ Also, make the tray icon disappear while the form is visible.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
