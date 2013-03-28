@@ -1,0 +1,6 @@
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\bin\Debug\WindowsApplication.exe
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\bin\Debug\WindowsApplication.pdb
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\obj\x86\Debug\Notification.MainForm.resources
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\obj\x86\Debug\Notification.vbproj.GenerateResource.Cache
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\obj\x86\Debug\WindowsApplication.exe
+C:\Users\Kyle Seely\Developer\Displaying System Data with the NotifyIcon Control\VB\obj\x86\Debug\WindowsApplication.pdb
