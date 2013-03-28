@@ -1,5 +1,6 @@
 import wmi
 import signal
+import Python_Notification
 from MetaData.TitleRetriever import TitleRetriever
 
 # fixes problems with Ctrl+C on Windows
