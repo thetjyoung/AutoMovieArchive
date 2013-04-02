@@ -1,10 +1,17 @@
 import clr
+from Notification import Notification
+from DriveGrab import DriveGrab
+
+from System.Threading import Thread, ThreadStart
+
+
 clr.AddReference("System.Management")
 from System.Management import *
 from System import Console, TimeSpan
 from MetaData.TitleRetriever import TitleRetriever
 import ripper
-
+  
+    
 
 #This is the call back when detecting a new drive
 def CDREventArrived(sender, e):
@@ -12,16 +19,23 @@ def CDREventArrived(sender, e):
     pd = e.NewEvent.Properties["TargetInstance"]
     mbo = pd.Value
     if (mbo.Properties["VolumeName"].Value is not None):
-        titleRetriever = TitleRetriever(mbo.Properties["DeviceID"].Value[0:1]);
-        movieName = titleRetriever.getMovieName();
+        titleRetriever = TitleRetriever(mbo.Properties["DeviceID"].Value[0:1])
+        movieName = titleRetriever.getMovieName()
         Console.WriteLine("Found: "+movieName)
-        
+        notifier.showBalloon("Begining Archive",movieName)
+
         mkvFile = ripper.rip(titleRetriever.driveLetter, movieName)
-		ripper.transcode(mkvFile, movieName)
+        ripper.transcode(mkvFile, movieName)
     else:
+        notifier.showBalloon("Disk Ejected")
         Console.WriteLine("CD has been ejected")
 
 
+
+
+
+notifier = Notification()
+test = DriveGrab();
 ##Set up drive observer
 observer = ManagementOperationObserver()
 opt = ConnectionOptions()
@@ -36,6 +50,7 @@ w = ManagementEventWatcher( scope, q )
 #Add event handler and use Console.ReadLine() to hold the thread
 try:
     w.EventArrived += EventArrivedEventHandler( CDREventArrived )
+    
     w.Start()
     Console.ReadLine()
     w.Stop()
