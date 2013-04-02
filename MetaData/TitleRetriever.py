@@ -79,4 +79,4 @@ class TitleRetriever:
         success = self.parseXMLResponse(xmlReponse)
         
         newTitle = self.getCorrectTitle()
-        return newTitle
+        return newTitle.rstrip()

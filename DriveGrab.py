@@ -7,7 +7,7 @@ from System.Windows.Forms import *
 import string
 from ctypes import windll
 
-class MyForm(Form):
+class DriveGrab(Form):
     def __init__(self):
         self.Text = 'Hello World'
         self.Height = 375
@@ -50,7 +50,10 @@ class MyForm(Form):
         self.Controls.Add(self.label)
         self.Controls.Add(browse)
         self.Controls.Add(okbutton)
+        
+        Application.EnableVisualStyles()
 
+        Application.Run(self)
 
     def buttonPressed(self, sender, args):
         self.PATH = "%s:\Movies"%sender.Text
@@ -79,8 +82,3 @@ class MyForm(Form):
         return drives
 
 
-Application.EnableVisualStyles()
-Application.SetCompatibleTextRenderingDefault(False)
-
-form = MyForm()
-Application.Run(form)
