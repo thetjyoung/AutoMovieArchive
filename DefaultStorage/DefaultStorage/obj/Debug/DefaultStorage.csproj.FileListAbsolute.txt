@@ -1,0 +1,9 @@
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\bin\Debug\DefaultStorage.exe.config
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\bin\Debug\DefaultStorage.exe
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\bin\Debug\DefaultStorage.pdb
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.csprojResolveAssemblyReference.cache
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.Form1.resources
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.Properties.Resources.resources
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.csproj.GenerateResource.Cache
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.exe
+C:\Users\Kyle Seely\Developer\AutoMovieArchive\DefaultStorage\DefaultStorage\obj\Debug\DefaultStorage.pdb
