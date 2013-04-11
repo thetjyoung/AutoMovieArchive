@@ -4,6 +4,7 @@ clr.AddReference('System.Windows.Forms')
 
 from System.Drawing import *
 from System.Windows.Forms import *
+from System.IO import *
 import string
 from ctypes import windll
 
@@ -20,7 +21,8 @@ class DriveGrab(Form):
         self.label.Height = 30
         self.label.Width = 200
 
-        self.drives = self.get_drives()
+        #self.drives = self.get_drives()
+        self.drives = DriveInfo.GetDrives()
 
         #combo box
         cb = ComboBox()
@@ -29,7 +31,10 @@ class DriveGrab(Form):
         cb.SelectionChangeCommitted += self.OnChanged
 
         for drive in self.drives:
-            cb.Items.Add(drive)
+            if drive.IsReady:
+                desc = drive.Name
+                desc += self.convertBytes(drive.AvailableFreeSpace) + ' Free'
+                cb.Items.Add(desc)
         
         #browse button
         browse = Button()
@@ -47,6 +52,14 @@ class DriveGrab(Form):
         self.Controls.Add(self.label)
         self.Controls.Add(browse)
         self.Controls.Add(okbutton)
+
+    def convertBytes(self, bytes):
+        gb = bytes / 1073741824.0
+        if gb < 1:
+            mb = bytes / 1048576.0
+            return '%(number).2fMB' % {'number': mb}
+        else:
+            return '%(number).2fGB' % {'number': gb}
 
     def OnChanged(self, sender, args):
         self.PATH = "%s:\Movies" % sender.SelectedItem
