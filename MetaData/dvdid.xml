@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<dvdXml>
+	<authenticated>True</authenticated>
+	<dvd>
+		<title></title>
+		<dvdCover>http://www.dvdxml.com/dvdcover/.jpg</dvdCover>
+		<year>0</year>
+		<length>0</length>
+		<rating></rating>
+		<dvdId>a440dc9a6a90da15</dvdId>
+		<genre></genre>
+		<studio></studio>
+		<cast></cast>
+		<plot></plot>
+	</dvd>
+</dvdXml>
